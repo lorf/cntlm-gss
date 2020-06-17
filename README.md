@@ -30,3 +30,12 @@ Listen		3128
 The username, domain and password are all unset.
 
 I could start it with `/home/me/usr/opt/cntlm-0.92.3/cntlm -a gss -c /home/me/usr/opt/cntlm-0.92.3/cntlm.conf` .
+
+# Docker image
+
+You can run docker image as follows (don't forget to add yourself to the
+`docker` group):
+
+```
+docker run -d --restart=unless-stopped --network=host -v $HOME/.cntlm.conf:/etc/cntlm.conf:ro -v /tmp:/tmp:ro -u `id -u`:`id -g` lorf/cntlm-gss
+```
