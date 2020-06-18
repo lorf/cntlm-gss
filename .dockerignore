@@ -1,5 +1,7 @@
 .git
 Dockerfile
+Dockerfile.*
+README*
 
 *.o
 *.sw?

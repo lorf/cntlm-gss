@@ -37,5 +37,17 @@ You can run docker image as follows (don't forget to add yourself to the
 `docker` group):
 
 ```
-docker run -d --restart=unless-stopped --network=host -v $HOME/.cntlm.conf:/etc/cntlm.conf:ro -v /tmp:/tmp:ro -u `id -u`:`id -g` lorf/cntlm-gss
+docker run -d --restart=unless-stopped --network=host -v $HOME/.cntlm.conf:/etc/cntlm.conf:ro -v /tmp:/tmp:ro -u `id -u`:`id -g` --name cntlm-gss lorf/cntlm-gss
+```
+
+To show documentatoin use
+
+```
+docker run --rm -it lorf/cntlm-gss man cntlm
+```
+
+To show sample config file use
+
+```
+docker run --rm -i lorf/cntlm-gss cat /etc/cntlm.conf
 ```
