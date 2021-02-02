@@ -13,9 +13,9 @@ RUN make clean && \
 
 FROM alpine
 
-RUN apk add --no-cache krb5-libs mandoc
+RUN apk add --no-cache krb5 krb5-libs mandoc
 COPY --from=build /build/cntlm /usr/bin/
 COPY --from=build /build/doc/cntlm.conf /etc/
 COPY --from=build /build/doc/cntlm.1 /usr/share/man/man1/
 EXPOSE 3128
-CMD [ "cntlm", "-a", "GSS", "-f" ]
+CMD [ "cntlm", "-a", "GSS", "-f", "-v" ]
