@@ -33,6 +33,15 @@ I could start it with `/home/me/usr/opt/cntlm-0.92.3/cntlm -a gss -c /home/me/us
 
 # Docker image
 
+To access Kerberos credential cache from docker container it needs to be of
+type `FILE`. Either set the default in `/etc/krb5.conf` using
+`default_ccache_name` variable in `[libdefaults]` section, or set it using
+`KRBCCNAME` env var before issuing `kinit`:
+
+```
+export KRB5CCNAME=FILE:/tmp/krb5cc_`id -u`
+```
+
 You can run docker image as follows (don't forget to add yourself to the
 `docker` group):
 
